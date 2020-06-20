@@ -1,0 +1,11 @@
+<template>
+	<view class="my-information">
+		我的信息
+	</view>
+</template>
+
+<script>
+</script>
+
+<style>
+</style>

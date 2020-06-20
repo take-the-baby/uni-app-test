@@ -1,9 +1,15 @@
 <template>
 	<view class="content">
-		<image class="logo" src="/static/logo.png"></image>
-		<view class="text-area">
-			<text class="title">{{title}}</text>
+		<view class="swiper-dot">
+			<swiper class="swiper-box" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval" :duration="duration" :current='current' >
+				<swiper-item v-for="(item ,index) in info" :key="index">
+					<image :src="item.url" mode="scaleToFill" class="swiper-img">
+						
+					</image>
+				</swiper-item>
+			</swiper>
 		</view>
+		首页
 	</view>
 </template>
 
@@ -11,42 +17,36 @@
 	export default {
 		data() {
 			return {
-				title: 'Hello'
+				info: [{
+					url: '../../static/img/swiper1.jpg'
+				}, {
+					url: '../../static/img/swiper2.jpg'
+				}, {
+					url: '../../static/img/swiper3.jpg'
+				}],
+				current: 0,
+				autoplay: true,// 控住是否自动切换
+				indicatorDots: true,// 是否显示面板指示点
+				interval: 3000, // 自动切换的时间间隔
+				duration: 500 // 滑动动画的时长
 			}
 		},
 		onLoad() {
 
 		},
+		mounted() {
+		},
 		methods: {
+			
 
 		}
 	}
 </script>
 
-<style>
-	.content {
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		justify-content: center;
-	}
+<style lang="scss">
 
-	.logo {
-		height: 200rpx;
-		width: 200rpx;
-		margin-top: 200rpx;
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 50rpx;
-	}
-
-	.text-area {
-		display: flex;
-		justify-content: center;
-	}
-
-	.title {
-		font-size: 36rpx;
-		color: #8f8f94;
-	}
+.swiper-img {
+	width: 100%;
+	height: 300rpx;
+}
 </style>
